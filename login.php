@@ -51,6 +51,8 @@ if (isset($_POST["submit"])) {
     if (mysqli_num_rows($result) == 1) {
         setcookie("User", $login, time() + 7200,"/");
         header("Location: profile.php");
+    } elseif (mysqli_num_rows($result) == 0) {
+        echo "Incorrect user data";
     } else {
         echo "<h2>Query Result:</h2>";
         echo "<table class='table table-bordered'><thead><tr>";
