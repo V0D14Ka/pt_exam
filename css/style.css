@@ -1,0 +1,90 @@
+
+body {
+    background-color: gray;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+
+.bar-logo{
+    background: url(../static/logo.png) no-repeat center center;
+    background-size: 100%;
+    width: 75px;
+    height: 75px;
+}
+
+.my-photo {
+    background: url(../static/hacker.jpeg) no-repeat center center;
+    background-size: 70%;
+    width: 440px;
+    height: 300px;
+}
+
+.bar-text {
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.container {
+    margin: auto;
+    padding: 30px;
+}
+
+.title-photo {
+    text-align: center;
+    font-size: 25px;
+}
+
+#myButton {
+    border: none;
+    width: 300px;
+    height: 80px;
+    border-radius: 44px;
+    font-size: 20px;
+    background-color: black;
+    color: gray;
+    font-weight: bold;
+}
+
+.button-js {
+    text-align: center;
+}
+
+.img1 {
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.btn_post {
+    border: none;
+    width: 300px;
+    height: 80px;
+    border-radius: 44px;
+    font-size: 20px;
+    background-color: black;
+    color: gray;
+    font-weight: bold;
+}
+
+.form-width {
+    width: 100%;
+}
+
+.form-align {
+    text-align: center;
+}
+
+.form-reg {
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 40%;
+}
+
+.padding-bot-10 {
+    padding-bottom: 10px;
+}

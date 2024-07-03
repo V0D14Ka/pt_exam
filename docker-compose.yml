@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  exam_web:
+    restart: "no"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    environment:
+      DATABASE_HOST: db 
+      DATABASE_PORT: 3306 
+      DATABASE_NAME: exam
+      DATABASE_USER: root 
+      DATABASE_PASSWORD: root 
+    networks:
+      custom_network:
+        ipv4_address: 172.20.0.22
+
+  db:
+    restart: "no"
+    image: mariadb
+    environment: 
+      MYSQL_DATABASE: exam
+      MYSQL_USER: root 
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - exam_db_data:/var/lib/mysql
+    networks:
+      custom_network:
+        ipv4_address: 172.20.0.23
+
+volumes:
+  exam_db_data: {}
+
+networks:
+  custom_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
