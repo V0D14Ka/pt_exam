@@ -46,13 +46,16 @@ if (isset($_POST["submit"])) {
     if (!$password || !$login) {
         die("Please enter correct data");
     }
-    $sql = "select * from users where username='$login' and pass='$password'";
+    $sql = "select * from users where pass='$password' and username='$login'";
     $result = mysqli_query($link, $sql);
     if (mysqli_num_rows($result) == 1) {
         setcookie("User", $login, time() + 7200,"/");
         header("Location: profile.php");
     } else {
-        echo "Incorrect user data";
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "Username: " . htmlspecialchars($row['username']) . "<br>";
+            echo "Password: " . htmlspecialchars($row['pass']) . "<br>";
+        }
     }
 }
 
