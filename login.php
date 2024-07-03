@@ -52,10 +52,22 @@ if (isset($_POST["submit"])) {
         setcookie("User", $login, time() + 7200,"/");
         header("Location: profile.php");
     } else {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "Username: " . htmlspecialchars($row['username']) . "<br>";
-            echo "Password: " . htmlspecialchars($row['pass']) . "<br>";
+        echo "<h2>Query Result:</h2>";
+        echo "<table class='table table-bordered'><thead><tr>";
+        $fields = mysqli_fetch_fields($result);
+        foreach ($fields as $field) {
+            echo "<th>" . htmlspecialchars($field->name) . "</th>";
         }
+        echo "</tr></thead><tbody>";
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            foreach ($row as $value) {
+                echo "<td>" . htmlspecialchars($value) . "</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</tbody></table>";
+        echo "</div></div></div>";
     }
 }
 
